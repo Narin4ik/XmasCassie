@@ -18,13 +18,13 @@ namespace XmasCassiePlugin
         {
             Singleton = this;
             eventHandlers = new EventHandlers();
-            Exiled.Events.Handlers.Server.RespawningTeam += eventHandlers.OnRespawningTeam;
+            Exiled.Events.Handlers.Server.RespawnedTeam += eventHandlers.OnRespawnedTeam;
             base.OnEnabled();
         }
 
         public override void OnDisabled()
         {
-            Exiled.Events.Handlers.Server.RespawningTeam -= eventHandlers.OnRespawningTeam;
+            Exiled.Events.Handlers.Server.RespawnedTeam -= eventHandlers.OnRespawnedTeam;
             eventHandlers = null;
             Singleton = null;
             base.OnDisabled();
