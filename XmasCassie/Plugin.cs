@@ -1,9 +1,10 @@
 ﻿using System;
 using Exiled.API.Features;
+using XmasCassie;
 
 namespace XmasCassiePlugin
 {
-    public class Plugin : Plugin<Config>
+    public class Plugin : Plugin<Config, Translation>
     {
         public static Plugin Singleton { get; private set; }
 
@@ -18,13 +19,14 @@ namespace XmasCassiePlugin
         {
             Singleton = this;
             eventHandlers = new EventHandlers();
-            Exiled.Events.Handlers.Server.RespawnedTeam += eventHandlers.OnRespawnedTeam;
+            Exiled.Events.Handlers.Map.AnnouncingNtfEntrance += eventHandlers.OnAnnouncingNtfEntrance;
+
             base.OnEnabled();
         }
 
         public override void OnDisabled()
         {
-            Exiled.Events.Handlers.Server.RespawnedTeam -= eventHandlers.OnRespawnedTeam;
+            Exiled.Events.Handlers.Map.AnnouncingNtfEntrance -= eventHandlers.OnAnnouncingNtfEntrance;
             eventHandlers = null;
             Singleton = null;
             base.OnDisabled();
