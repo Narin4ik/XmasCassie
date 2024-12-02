@@ -11,7 +11,7 @@ namespace XmasCassiePlugin
         public override string Name => "XmasCassie";
         public override string Author => "Narin";
         public override Version Version => new Version(1, 0, 0);
-        public override Version RequiredExiledVersion => new Version(9, 0, 0);
+        public override Version RequiredExiledVersion => new Version(8, 14, 0);
 
         private EventHandlers eventHandlers;
 
